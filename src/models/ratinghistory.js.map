@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "ratinghistory.js",
+  "sourceRoot": "",
+  "sources": [
+    "ratinghistory.ts"
+  ],
+  "names": [],
+  "mappings": ";AAAA;;GAEG;AACH;IACI,uBACW,EAAe,EACf,QAAqB,EACrB,IAAkB,EAClB,MAAmB;QAH1B,kBAAsB,GAAtB,MAAsB;QACtB,wBAA4B,GAA5B,YAA4B;QAC5B,oBAAyB,GAAzB,SAAyB;QACzB,sBAA0B,GAA1B,UAA0B;QAHnB,OAAE,GAAF,EAAE,CAAa;QACf,aAAQ,GAAR,QAAQ,CAAa;QACrB,SAAI,GAAJ,IAAI,CAAc;QAClB,WAAM,GAAN,MAAM,CAAa;IAC5B,CAAC;IACP,oBAAC;AAAD,CAAC,AAPD,IAOC;AAPY,qBAAa,gBAOzB,CAAA"
+}
