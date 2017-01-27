@@ -1,0 +1,10 @@
+{
+  "version": 3,
+  "file": "setting.js",
+  "sourceRoot": "",
+  "sources": [
+    "setting.ts"
+  ],
+  "names": [],
+  "mappings": ";AACA;;GAEG;AACH;IACI,iBACW,EAAe,EACf,KAAmB,EACnB,KAAmB;QAF1B,kBAAsB,GAAtB,MAAsB;QACtB,qBAA0B,GAA1B,UAA0B;QAC1B,qBAA0B,GAA1B,UAA0B;QAFnB,OAAE,GAAF,EAAE,CAAa;QACf,UAAK,GAAL,KAAK,CAAc;QACnB,UAAK,GAAL,KAAK,CAAc;IAC5B,CAAC;IACP,cAAC;AAAD,CAAC,AAND,IAMC;AANY,eAAO,UAMnB,CAAA"
+}
