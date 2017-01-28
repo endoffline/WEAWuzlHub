@@ -4,17 +4,26 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
+import { PlayerListComponent } from './player-list/player-list.component';
+import { PlayerDetailComponent } from './player-detail/player-detail.component';
+import {PlayerService} from "./player.service";
+
+import { AppRoutingModule }     from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlayerListComponent,
+    PlayerDetailComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpModule
+    HttpModule,
+    AppRoutingModule
   ],
-  providers: [],
+  providers: [PlayerService],
   bootstrap: [AppComponent]
 })
+
 export class AppModule { }

@@ -30,4 +30,4 @@ var Team = (function () {
   return Team;
 }());
 exports.Team = Team;
-//# sourceMappingURL=Team.js.map
+//# sourceMappingURL=team.js.map

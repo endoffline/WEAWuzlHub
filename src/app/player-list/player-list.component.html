@@ -1,0 +1,5 @@
+<ul class="players">
+  <li *ngFor="let player of players" [routerLink]="['/detail', player.Id]" [class.selected]="player === selectedPlayer"><!--[routerLink]="['/detail', player.Id]"--><!--(click)="onSelect(player)" -->
+    <span class="badge">{{player.Id}}</span> {{player.FirstName}} {{player.LastName}}
+  </li>
+</ul>
