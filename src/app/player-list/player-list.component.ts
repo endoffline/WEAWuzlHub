@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import {Player} from "../../models/player";
-import { PlayerService } from '../player.service';
+import { PlayerService } from '../services/player.service';
 import { OnInit } from '@angular/core';
 
 @Component({

@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import {Headers, Http} from "@angular/http";
 import 'rxjs/add/operator/toPromise';
 
-import {Player} from "../models/player";
-import {baseUrl} from "./app-const.component";
-import {PLAYERS} from "./mock-players";
+import {Player} from "../../models/player";
+import {baseUrl} from "../app-const.component";
+import {PLAYERS} from "../mock-players";
 
 
 
@@ -12,8 +12,8 @@ import {PLAYERS} from "./mock-players";
 export class PlayerService {
   private playersUrl = `${baseUrl}/player`;  // URL to web api
   private headers = new Headers({'Accept': 'application/json'});
-  constructor(private http: Http) { }
 
+  constructor(private http: Http) { }
 
   getPlayers(): Promise<Player[]> {
     return this.http.get(this.playersUrl, {headers: this.headers})

@@ -1,22 +1,143 @@
-<div *ngIf="player">
-  <h2>{{player.FirstName}} {{player.LastName}} details!</h2>
-  <form>
+<div *ngIf="player" class="container">
+  <h2>{{player.FirstName}} {{player.LastName}}'s details!</h2>
+  <!--<form>
     <div class="form-group">
       <label>Id:</label>{{player.Id}}
     </div>
     <div class="form-group">
       <label for="firstName">First name:</label>
-      <input type="text" class="form-control" id="firstName" [(ngModel)]="player.FirstName" placeholder="First name" required>
+      <input type="text" class="form-control" id="firstName" [(ngModel)]="player.FirstName" placeholder="First name" name="firstName" required>
     </div>
     <div class="form-group">
       <label for="nickName">Nickname:</label>
-      <input type="text" class="form-control" id="nickName" [(ngModel)]="player.NickName" placeholder="Nickname" required>
+      <input type="text" class="form-control" id="nickName" [(ngModel)]="player.NickName" placeholder="Nickname" name="nickname" required>
     </div>
     <div class="form-group">
       <label for="lastName">Last name:</label>
-      <input type="text" class="form-control" id="lastName" [(ngModel)]="player.LastName" placeholder="Last name" required>
+      <input type="text" class="form-control" id="lastName" [(ngModel)]="player.LastName" placeholder="Last name" name="lastName" required>
+    </div>
+  </form>-->
+
+
+  <form novalidate (ngSubmit)="onSubmit(playerfg)" [formGroup]="playerfg">
+    <div class="row">
+      <div class="col-xs-12 col-sm-8">
+        <div class="form-group">
+          <label for="firstNameInput">First name</label>
+          <input type="text" placeholder="Your first name" formControlName="FirstName" class="form-control"
+                 id="firstNameInput">
+          <div class="error"
+               *ngIf="playerfg.get('FirstName').touched && playerfg.get('FirstName').hasError('required')">
+            Name is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nicknameInput">Nickname</label>
+          <input type="text" placeholder="Your nickname" formControlName="NickName" class="form-control"
+                 id="nicknameInput">
+          <div class="error" *ngIf="playerfg.get('NickName').touched && playerfg.get('NickName').hasError('required')">
+            Name is required
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastNameInput">Last name</label>
+          <input type="text" placeholder="Your last name" formControlName="LastName" class="form-control"
+                 id="lastNameInput">
+          <div class="error" *ngIf="playerfg.get('LastName').touched && playerfg.get('LastName').hasError('required')">
+            Name is required
+          </div>
+        </div>
+        <!--
+        <div class="error" *ngIf="user.get('name').touched && user.get('name').hasError('minlength')">
+          Minimum of 2 characters
+        </div>-->
+
+        <div class="form-group">
+          <label for="emailInput">Email address</label>
+          <input type="email" placeholder="Your email address" formControlName="Email" class="form-control"
+                 id="emailInput">
+          <div
+            class="error"
+            *ngIf="(playerfg.get('Email').hasError('required') || playerfg.get('Email').hasError('pattern')) && playerfg.get('Email').touched">
+            Email is required and is not valid
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="passwordInput">Password</label>
+          <input type="password" placeholder="Your password" formControlName="Password" class="form-control"
+                 id="passwordInput">
+        </div>
+
+        <div class="form-group">
+          <label>Role</label>
+          <div>
+            <label class="radio-inline"><input type="radio" formControlName="IsAdmin" [value]="false"/>Player</label>
+            <label class="radio-inline"><input type="radio" formControlName="IsAdmin"
+                                               [value]="true"/>Administrator</label>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="profileImageInput">Image URL</label>
+          <input type="url" placeholder="Your URL to the profile image" formControlName="ProfileImage"
+                 class="form-control" id="profileImageInput">
+        </div>
+
+        <!--<div
+          class="error"
+          *ngIf="user.get('account').get('email').hasError('required') && user.get('account').get('email').touched">
+          Email is required
+        </div>
+        <label>
+          <span>Confirm address</span>
+          <input type="email" placeholder="Confirm your email address" formControlName="confirm">
+        </label>
+        <div
+          class="error"
+          *ngIf="user.get('account').get('confirm').hasError('required') && user.get('account').get('confirm').touched">
+          Confirming email is required
+        </div>-->
+
+      </div>
+      <div class="col-sm-4">
+        <img [src]="player.ProfileImage" class="img-responsive" alt="Profile Image"/>
+
+        <div class="form-group">
+          <label>Weekdays</label>
+          <div class="checkbox">
+            <label><input type="checkbox" formControlName="Monday"/>Monday</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" formControlName="Tuesday"/>Tuesday</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" formControlName="Wednesday"/>Wednesday</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" formControlName="Thursday"/>Thursday</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" formControlName="Friday"/>Friday</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" formControlName="Saturday"/>Saturday</label>
+          </div>
+          <div class="checkbox">
+            <label><input type="checkbox" formControlName="Sunday"/>Sunday</label>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="submit" [disabled]="playerfg.invalid" class="btn btn-default">Sign up</button>
+        <button (click)="goBack()" class="btn btn-default">Back</button>
+      </div>
     </div>
   </form>
 
-  <button (click)="goBack()">Back</button>
+
 </div>

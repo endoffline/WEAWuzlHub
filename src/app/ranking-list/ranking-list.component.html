@@ -1,0 +1,34 @@
+<div class="container">
+
+  <canvas baseChart #statistics
+          [datasets]="finalLineChartData"
+          [labels]="finalLineChartLabels"
+          [options]="lineChartOptions"
+          [legend]="lineChartLegend"
+          [chartType]="lineChartType"></canvas>
+  <!--<li *ngFor="let rh of ratingHistories">
+    {{rh}}
+    <ul>
+      <li *ngFor="let r of rh">
+
+        <span class="badge">{{r.PlayerId}}</span> {{r.Rating}} {{r.Date}}
+      </li>
+    </ul>
+  </li>-->
+  <table class="table table-striped">
+    <tr>
+      <th>#</th>
+      <th>First name</th>
+      <th>Nickname</th>
+      <th>Last name</th>
+      <th>Rating</th>
+    </tr>
+    <tr *ngFor="let player of players; let no = index">
+      <td>{{no + 1}}</td>
+      <td>{{player.FirstName}}</td>
+      <td>{{player.NickName}}</td>
+      <td>{{player.LastName}}</td>
+      <td>{{player.Rating.Rating}}</td>
+    </tr>
+  </table>
+</div>

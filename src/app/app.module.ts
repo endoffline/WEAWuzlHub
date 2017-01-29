@@ -1,29 +1,39 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import {BrowserModule}          from '@angular/platform-browser';
+import {NgModule}               from '@angular/core';
+import {FormsModule}            from '@angular/forms';
+import {ReactiveFormsModule}    from '@angular/forms'
+import {HttpModule}             from '@angular/http';
+import {AppRoutingModule}       from './app-routing.module';
+import {ChartsModule}           from 'ng2-charts';
 
-import { AppComponent } from './app.component';
-import { PlayerListComponent } from './player-list/player-list.component';
-import { PlayerDetailComponent } from './player-detail/player-detail.component';
-import {PlayerService} from "./player.service";
+import {AppComponent}           from './app.component';
+import {PlayerListComponent}    from './player-list/player-list.component';
+import {PlayerDetailComponent}  from './player-detail/player-detail.component';
+import {PlayerService}          from "./services/player.service";
+import {RankingService}         from "./services/ranking.service";
+import {RankingListComponent}   from "./ranking-list/ranking-list.component";
 
-import { AppRoutingModule }     from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     PlayerListComponent,
-    PlayerDetailComponent
+    PlayerDetailComponent,
+    RankingListComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ChartsModule
   ],
-  providers: [PlayerService],
+  providers: [
+    PlayerService,
+    RankingService],
   bootstrap: [AppComponent]
 })
 
-export class AppModule { }
+export class AppModule {
+}
