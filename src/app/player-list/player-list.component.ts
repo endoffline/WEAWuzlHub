@@ -29,6 +29,9 @@ export class PlayerListComponent implements OnInit {
     this.selectedPlayer = player;
   }
 
+  createPlayer(): void {
+    //this.router
+  }
 }
 
 

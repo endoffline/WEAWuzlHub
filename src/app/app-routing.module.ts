@@ -4,6 +4,7 @@ import {RouterModule, Routes}   from '@angular/router';
 import {PlayerListComponent}    from "./player-list/player-list.component";
 import {PlayerDetailComponent}  from "./player-detail/player-detail.component";
 import {RankingListComponent}   from "./ranking-list/ranking-list.component";
+import {PlayerNewComponent} from "./player-new/player-new.component";
 
 const routes: Routes = [
   {
@@ -13,6 +14,10 @@ const routes: Routes = [
   {
     path: 'detail/:id',
     component: PlayerDetailComponent
+  },
+  {
+    path: 'players/new',
+    component: PlayerNewComponent
   },
   {
     path: 'ranking',

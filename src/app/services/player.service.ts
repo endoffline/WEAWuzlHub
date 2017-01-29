@@ -5,6 +5,8 @@ import 'rxjs/add/operator/toPromise';
 import {Player} from "../../models/player";
 import {baseUrl} from "../app-const.component";
 import {PLAYERS} from "../mock-players";
+import {LoginService} from "./login.service";
+import {Observable} from "rxjs";
 
 
 
@@ -13,7 +15,8 @@ export class PlayerService {
   private playersUrl = `${baseUrl}/player`;  // URL to web api
   private headers = new Headers({'Accept': 'application/json'});
 
-  constructor(private http: Http) { }
+  constructor(private http: Http,
+              private loginService: LoginService) { }
 
   getPlayers(): Promise<Player[]> {
     return this.http.get(this.playersUrl, {headers: this.headers})
@@ -45,6 +48,17 @@ export class PlayerService {
       .catch(this.handleError);
   }
 
+  updatePlayer(player: Player): Observable<boolean> {
+    let headers = this.loginService.getHeaders();
+    return this.http.put(this.playersUrl, JSON.stringify(player), {headers: headers})
+      .map(response => <boolean>response.json());
+  }
+
+  createPlayer(player: Player): Observable<boolean> {
+    let headers = this.loginService.getHeaders();
+    return this.http.post(this.playersUrl, JSON.stringify(player), {headers: headers})
+      .map(response => <boolean>response.json());
+  }
 }
 
 

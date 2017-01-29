@@ -1,9 +1,8 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms'
-import {ActivatedRoute, Params}   from '@angular/router';
+import {ActivatedRoute, Params, Router}   from '@angular/router';
 import {Location}                 from '@angular/common';
 import 'rxjs/add/operator/switchMap';
-import {Observable} from 'rxjs/Observable';
 
 import {PlayerService} from '../services/player.service';
 
@@ -11,17 +10,18 @@ import {Player} from "../../models/player";
 
 @Component({
   moduleId: module.id,
-  selector: 'player-detail',
-  templateUrl: './player-detail.component.html',
-  styleUrls: ['./player-detail.component.css']
+  selector: 'player-new',
+  templateUrl: './player-new.component.html',
+  styleUrls: ['./../player-detail/player-detail.component.css']
 })
 
-export class PlayerDetailComponent implements OnInit {
+export class PlayerNewComponent implements OnInit {
 
   constructor(private playerService: PlayerService,
               private route: ActivatedRoute,
               private location: Location,
-              private formBuilder: FormBuilder) {
+              private formBuilder: FormBuilder,
+              private router: Router) {
   }
 
 
@@ -47,18 +47,11 @@ export class PlayerDetailComponent implements OnInit {
       Sunday: [''],
     });
 
-    this.route.params
-      .switchMap((params: Params) => this.playerService.getPlayer(+params['id']))
-      .subscribe(player => {
-        this.player = player;
-        this.playerfg.patchValue(player);
-      });
   }
 
   onSubmit({value, valid}: { value: Player, valid: boolean }) {
-    value.Id = this.player.Id;
     console.log(value, valid);
-    this.playerService.updatePlayer(value)
+    this.playerService.createPlayer(value)
       .subscribe(success => {
         if (success) {
           this.message = "Success";
@@ -66,6 +59,7 @@ export class PlayerDetailComponent implements OnInit {
           this.message = "Failure";
         }
       });
+    this.router.navigate(['/players']);
   }
 
   goBack(): void {

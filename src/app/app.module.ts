@@ -12,6 +12,9 @@ import {PlayerDetailComponent}  from './player-detail/player-detail.component';
 import {PlayerService}          from "./services/player.service";
 import {RankingService}         from "./services/ranking.service";
 import {RankingListComponent}   from "./ranking-list/ranking-list.component";
+import {LoginService} from "./services/login.service";
+import {CommonModule} from "@angular/common";
+import {PlayerNewComponent} from "./player-new/player-new.component";
 
 
 @NgModule({
@@ -19,6 +22,7 @@ import {RankingListComponent}   from "./ranking-list/ranking-list.component";
     AppComponent,
     PlayerListComponent,
     PlayerDetailComponent,
+    PlayerNewComponent,
     RankingListComponent
   ],
   imports: [
@@ -27,11 +31,13 @@ import {RankingListComponent}   from "./ranking-list/ranking-list.component";
     ReactiveFormsModule,
     HttpModule,
     AppRoutingModule,
-    ChartsModule
+    ChartsModule,
+    CommonModule
   ],
   providers: [
     PlayerService,
-    RankingService],
+    RankingService,
+    LoginService],
   bootstrap: [AppComponent]
 })
 
