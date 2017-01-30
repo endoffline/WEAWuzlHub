@@ -9,7 +9,7 @@ import {Game} from "../../models/game";
   styleUrls: ['./game-detail.component.css']
 })
 
-export class GamesDetailComponent {
+export class GameDetailComponent {
 
   @Input()
   game: Game;

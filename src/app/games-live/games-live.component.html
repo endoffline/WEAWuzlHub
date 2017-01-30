@@ -1,7 +1,7 @@
 <div class="container">
   <div *ngIf="tournament">
     <h2>{{tournament.Name}}</h2><h3> on {{tournament.Date}}</h3>
-    <div *ngFor="let game of tournament.Games" >
+    <div *ngFor="let game of tournament.Games"  (click)="onSelect(game)"> <!-- [routerLink]="['/game', game.Id]" [class.selected]="game === selectedGame"-->
       <game-detail [game]="game"></game-detail>
     </div>
   </div>

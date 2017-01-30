@@ -4,6 +4,8 @@ import {Game} from "../../models/game";
 import {TournamentService} from "../services/tournament.service";
 import {Tournament} from "../../models/tournament";
 import {Observable} from "rxjs";
+import {Router} from "@angular/router";
+import {LoginService} from "../services/login.service";
 
 @Component({
   moduleId: module.id,
@@ -14,8 +16,11 @@ import {Observable} from "rxjs";
 export class GamesLiveComponent implements OnInit {
 
   tournament: Tournament = new Tournament();
+  selectedGame: Game = new Game();
 
-  constructor(private tournamentService: TournamentService) {
+  constructor(private tournamentService: TournamentService,
+              private router: Router,
+              private loginService: LoginService) {
   }
 
   getTournamnetToday(): void {
@@ -54,6 +59,15 @@ export class GamesLiveComponent implements OnInit {
       smm = mm.toString();
     }
     return sdd + '-' + smm + '-' + yyyy;
+
+  }
+
+  onSelect(game: Game): void {
+    console.log("selected: " + game.Id);
+    if (this.loginService.getLoginStatus()) {
+      this.selectedGame = game;
+      this.router.navigate(['/game', this.selectedGame.Id]);
+    }
 
   }
 

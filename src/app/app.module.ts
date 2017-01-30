@@ -18,7 +18,8 @@ import {PlayerNewComponent} from "./player-new/player-new.component";
 import {TournamentService} from "./services/tournament.service";
 import {GameService} from "./services/game.service";
 import {GamesLiveComponent} from "./games-live/games-live.component";
-import {GamesDetailComponent} from "./game-detail/game-detail.component";
+import {GameDetailComponent} from "./game-detail/game-detail.component";
+import {GameEditComponent} from "./game-edit/game-edit.component";
 
 
 @NgModule({
@@ -29,7 +30,8 @@ import {GamesDetailComponent} from "./game-detail/game-detail.component";
     PlayerNewComponent,
     RankingListComponent,
     GamesLiveComponent,
-    GamesDetailComponent
+    GameDetailComponent,
+    GameEditComponent
   ],
   imports: [
     BrowserModule,

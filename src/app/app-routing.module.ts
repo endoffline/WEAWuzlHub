@@ -6,11 +6,21 @@ import {PlayerDetailComponent}  from "./player-detail/player-detail.component";
 import {RankingListComponent}   from "./ranking-list/ranking-list.component";
 import {PlayerNewComponent} from "./player-new/player-new.component";
 import {GamesLiveComponent} from "./games-live/games-live.component";
+import {GameEditComponent} from "./game-edit/game-edit.component";
 
 const routes: Routes = [
   {
+    path: '',
+    redirectTo: '/live',
+    pathMatch: 'full'
+  },
+  {
     path: 'live',
     component: GamesLiveComponent
+  },
+  {
+    path: 'game/:id',
+    component: GameEditComponent
   },
   {
     path: 'players',

@@ -1,0 +1,33 @@
+<div *ngIf="game" class="container">
+<form novalidate (ngSubmit)="onSubmit(gamefg)" [formGroup]="gamefg">
+  <div class="row">
+    <div class="col-xs-2 text-center">
+      <div class="item-image"><img [src]="game.Team1.Player1.ProfileImage" class="img-responsive" alt="Profile Image"/>
+      </div>
+      <h3>{{game.Team1.Player1.NickName}}</h3></div>
+    <div class="col-xs-2 text-center">
+      <div class="item-image"><img [src]="game.Team1.Player2.ProfileImage" class="img-responsive " alt="Profile Image"/>
+      </div>
+      <h3>{{game.Team1.Player2.NickName}}</h3></div>
+
+    <div class="col-xs-1">
+      <input type="text" formControlName="Score1" class="form-control">
+    </div>
+    <div class="col-xs-2 text-center"><h3>:</h3></div>
+    <div class="col-xs-1 text-center">
+      <input type="text" formControlName="Score2" class="form-control">
+    </div>
+
+    <div class="col-xs-2 text-center">
+      <div class="item-image"><img [src]="game.Team2.Player1.ProfileImage" class="img-responsive " alt="Profile Image"/>
+      </div>
+      <h3>{{game.Team2.Player1.NickName}}</h3></div>
+    <div class="col-xs-2 text-center">
+      <div class="item-image"><img [src]="game.Team2.Player2.ProfileImage" class="img-responsive " alt="Profile Image"/>
+      </div>
+      <h3>{{game.Team2.Player2.NickName}}</h3></div>
+  </div>
+  <button type="submit" [disabled]="gamefg.invalid" class="btn btn-default">Update</button>
+  <button (click)="goBack()" class="btn btn-default">Back</button>
+</form>
+</div>
