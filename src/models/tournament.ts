@@ -1,6 +1,6 @@
 import {Game} from "./game";
 
-export class Team {
+export class Tournament {
   constructor(public Id: number = 0,
               public Name: string = '',
               public Date: string = '',

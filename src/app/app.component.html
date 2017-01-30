@@ -4,6 +4,7 @@
       <div class="navbar-brand">{{title}}</div>
     </div>
     <ul class="nav navbar-nav">
+      <li><a routerLink="/live" routerLinkActive="active">Live</a></li>
       <li><a routerLink="/ranking" routerLinkActive="active">Ranking</a></li>
       <li *ngIf="isLoggedIn"><a routerLink="/players" routerLinkActive="active">Players</a></li>
     </ul>

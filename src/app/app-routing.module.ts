@@ -5,8 +5,13 @@ import {PlayerListComponent}    from "./player-list/player-list.component";
 import {PlayerDetailComponent}  from "./player-detail/player-detail.component";
 import {RankingListComponent}   from "./ranking-list/ranking-list.component";
 import {PlayerNewComponent} from "./player-new/player-new.component";
+import {GamesLiveComponent} from "./games-live/games-live.component";
 
 const routes: Routes = [
+  {
+    path: 'live',
+    component: GamesLiveComponent
+  },
   {
     path: 'players',
     component: PlayerListComponent

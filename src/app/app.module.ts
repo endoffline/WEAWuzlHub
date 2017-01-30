@@ -15,6 +15,10 @@ import {RankingListComponent}   from "./ranking-list/ranking-list.component";
 import {LoginService} from "./services/login.service";
 import {CommonModule} from "@angular/common";
 import {PlayerNewComponent} from "./player-new/player-new.component";
+import {TournamentService} from "./services/tournament.service";
+import {GameService} from "./services/game.service";
+import {GamesLiveComponent} from "./games-live/games-live.component";
+import {GamesDetailComponent} from "./game-detail/game-detail.component";
 
 
 @NgModule({
@@ -23,7 +27,9 @@ import {PlayerNewComponent} from "./player-new/player-new.component";
     PlayerListComponent,
     PlayerDetailComponent,
     PlayerNewComponent,
-    RankingListComponent
+    RankingListComponent,
+    GamesLiveComponent,
+    GamesDetailComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +43,10 @@ import {PlayerNewComponent} from "./player-new/player-new.component";
   providers: [
     PlayerService,
     RankingService,
-    LoginService],
+    LoginService,
+    TournamentService,
+    GameService
+  ],
   bootstrap: [AppComponent]
 })
 
